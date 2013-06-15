@@ -184,7 +184,6 @@
 		502E8D4D176C85F500488A49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 502E8D4C176C85F500488A49 /* main.m */; };
 		502E8D50176C85F500488A49 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 502E8D4F176C85F500488A49 /* AppDelegate.mm */; };
 		502E8D53176C85F500488A49 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 502E8D52176C85F500488A49 /* HelloWorldLayer.mm */; };
-		502E8D56176C85F500488A49 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 502E8D55176C85F500488A49 /* IntroLayer.mm */; };
 		502E8D59176C85F500488A49 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 502E8D58176C85F500488A49 /* GLES-Render.mm */; };
 		502E8D5B176C85F500488A49 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 502E8D5A176C85F500488A49 /* blocks.png */; };
 /* End PBXBuildFile section */
@@ -561,8 +560,6 @@
 		502E8D4F176C85F500488A49 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		502E8D51176C85F500488A49 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		502E8D52176C85F500488A49 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
-		502E8D54176C85F500488A49 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		502E8D55176C85F500488A49 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
 		502E8D57176C85F500488A49 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		502E8D58176C85F500488A49 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		502E8D5A176C85F500488A49 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
@@ -630,8 +627,6 @@
 				502E8D4F176C85F500488A49 /* AppDelegate.mm */,
 				502E8D51176C85F500488A49 /* HelloWorldLayer.h */,
 				502E8D52176C85F500488A49 /* HelloWorldLayer.mm */,
-				502E8D54176C85F500488A49 /* IntroLayer.h */,
-				502E8D55176C85F500488A49 /* IntroLayer.mm */,
 				502E8D57176C85F500488A49 /* GLES-Render.h */,
 				502E8D58176C85F500488A49 /* GLES-Render.mm */,
 				502E8B2E176C85F200488A49 /* Resources */,
@@ -1408,7 +1403,6 @@
 				502E8D4D176C85F500488A49 /* main.m in Sources */,
 				502E8D50176C85F500488A49 /* AppDelegate.mm in Sources */,
 				502E8D53176C85F500488A49 /* HelloWorldLayer.mm in Sources */,
-				502E8D56176C85F500488A49 /* IntroLayer.mm in Sources */,
 				502E8D59176C85F500488A49 /* GLES-Render.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1471,6 +1465,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"TwoUp/libs/kazmath/include\"";
 				INFOPLIST_FILE = TwoUp/Resources/Info.plist;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
