@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A564A175A9760DF1DA76B94 /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A564C50A3B7797DCF8022C1 /* sprites.png */; };
 		502E8B1A176C85F200488A49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502E8B19176C85F200488A49 /* QuartzCore.framework */; };
 		502E8B1C176C85F200488A49 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502E8B1B176C85F200488A49 /* OpenGLES.framework */; };
 		502E8B1E176C85F200488A49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502E8B1D176C85F200488A49 /* OpenAL.framework */; };
@@ -189,6 +190,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A564C50A3B7797DCF8022C1 /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprites.png; sourceTree = "<group>"; };
 		502E8B16176C85F200488A49 /* TwoUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwoUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502E8B19176C85F200488A49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		502E8B1B176C85F200488A49 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -652,6 +654,7 @@
 				502E8B43176C85F200488A49 /* Info.plist */,
 				502E8B44176C85F200488A49 /* iTunesArtwork */,
 				502E8D5A176C85F500488A49 /* blocks.png */,
+				1A564C50A3B7797DCF8022C1 /* sprites.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1238,6 +1241,7 @@
 				502E8B45176C85F200488A49 /* iTunesArtwork in Resources */,
 				502E8C9B176C85F400488A49 /* ChangeLog in Resources */,
 				502E8D5B176C85F500488A49 /* blocks.png in Resources */,
+				1A564A175A9760DF1DA76B94 /* sprites.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
