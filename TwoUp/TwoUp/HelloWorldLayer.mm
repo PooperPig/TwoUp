@@ -8,6 +8,8 @@
 
 #import "HelloWorldLayer.h"
 #import "CCPhysicsSprite.h"
+#import "AccelerometerSimulation.h"
+
 
 @interface HelloWorldLayer()
 -(void) initPhysics;
@@ -17,6 +19,8 @@ float timeBetweenFlips = 2.0;
 float timeUntilNextFlip = -1;
 int numberOfHeads = 0;
 int numberOfTails = 0;
+float deviceAngle;
+int rnd_seed;
 
 CCLabelTTF *resultLabel;
 
@@ -59,6 +63,9 @@ bool paused = false;
 
 		[self scheduleUpdate];
 		numberOfFlips = 10;
+
+
+
 	}
 	return self;
 }
@@ -74,6 +81,15 @@ bool paused = false;
 	[super dealloc];
 }
 
+-(void) accelerometer:(UIAccelerometer* )accelerometer didAccelerate:(UIAcceleration* )acceleration
+{
+	deviceAngle = atan2f(acceleration.x, acceleration.y);
+	//!! What the hell, get a new seed every time we move the device
+	//!! And log it too!
+	rnd_seed = (int)(deviceAngle*100);
+	NSString* s = [NSString stringWithFormat:@"device angle = %f, %d, %d ", deviceAngle, acceleration.x, acceleration.y];
+	//CCLOG(s);
+}
 
 -(void) initPhysics
 {
@@ -210,9 +226,24 @@ bool paused = false;
 	[sprite setPosition: ccp( p.x, p.y)];
 
 
-	//!!  Recognise 2147483647 ?
 	v =    body->GetWorldCenter();
-	v.x += ((rand() / 2147483647.0) +0.5)/8;
+
+
+	unsigned int hi,lo;
+	hi = 16807 * rnd_seed >> 16;
+	lo = 16807 * rnd_seed & 0xFFFF;
+	lo+= (hi & 0x7FFF) <<16;
+	lo+= hi >>15;
+	if (lo > 2147483647)
+		lo -= 2147483647;
+	rnd_seed = lo;
+
+	v.x += ((rnd_seed % 2) - 0.99) / 10;
+
+	NSString* s = [NSString stringWithFormat:@"v.x = %f.4 rnd_seed = %d", v.x, rnd_seed];
+	CCLOG(s);
+
+
 	body->ApplyLinearImpulse(b2Vec2(0.85,4.0), v);
 	body->SetUserData(sprite);
 
