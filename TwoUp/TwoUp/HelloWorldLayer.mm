@@ -17,9 +17,7 @@ float timeBetweenFlips = 2.0;
 float timeUntilNextFlip = -1;
 int numberOfHeads = 0;
 int numberOfTails = 0;
-int numberOfFlips = 10;
-CCLabelTTF *headsLabel;
-CCLabelTTF *tailsLabel;
+
 CCLabelTTF *resultLabel;
 
 bool paused = false;
@@ -60,6 +58,7 @@ bool paused = false;
 		tailsLabel.position = ccp( s.width - 80, s.height-30);
 
 		[self scheduleUpdate];
+		numberOfFlips = 10;
 	}
 	return self;
 }
@@ -221,7 +220,7 @@ bool paused = false;
 
 -(void) update: (ccTime) dt
 {
-	if (!paused)
+	if (!(paused == YES))
 	{
 		//!! Let's set some local variables to store some constants
 		int32 velocityIterations = 8;
@@ -239,8 +238,7 @@ bool paused = false;
 		//!! I know it's a small one, but inconsistancy in placing of * for pointers gets right up my schnoz
 		for(b2Body *b = world->GetBodyList(); b; b=b->GetNext())
 		{
-			if (!b->IsAwake())
-			{
+			if (!b->IsAwake())	{
 				CCPhysicsSprite* sprite = (CCPhysicsSprite* )b->GetUserData();
 				if (sprite)
 				{
@@ -312,6 +310,7 @@ bool paused = false;
 	if (angle < 95 || angle > 265)
 	{
 		//!! Keep the logging in production just to make sure it's slow and jerky
+		//TODO: Remove logging prior to release
 		CCLOG(@"Heads");
 		//!! Hard code the sprite sizes, animation durations etc.
 		sprite = [CCSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(0,17,98,30)];
@@ -326,6 +325,7 @@ bool paused = false;
 	}
 	else
 	{
+		//TODO: Remove logging prior to release
 		CCLOG(@"Tails");
 		sprite = [CCSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(0, 51, 75, 36)];
 		actionMove = [CCMoveTo actionWithDuration:3.0 position:ccp(w.width-101,w.height-20)];
@@ -342,8 +342,8 @@ bool paused = false;
 
 -(void) headsFinishedMoving:(id) sender
 {
-	[self removeChild:sender cleanup:YES];
 	[headsLabel setString: [NSString stringWithFormat:@"Heads: %d", ++numberOfHeads]];
+	[self removeChild:sender cleanup:YES];
 
 }
 -(void) tailsFinishedMoving:(id) sender
@@ -362,12 +362,6 @@ bool paused = false;
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-//	for( UITouch *touch in touches ) {
-//		CGPoint location = [touch locationInView: [touch view]];
-//		location = [[CCDirector sharedDirector] convertToGL: location];
-//		[self addNewSpriteAtPosition: location];
-//	}
-
 	numberOfHeads = 0;
 	numberOfTails = 0;
 	//!! Use true or YES interchangeably

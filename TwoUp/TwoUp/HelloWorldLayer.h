@@ -26,6 +26,11 @@
 	CCTexture2D *spriteTexture_;	// weak ref
 	b2World* world;					// strong ref
 	GLESDebugDraw *m_debugDraw;		// strong ref
+
+	//!! Define some in the .h and some in .mm - it doesn't matter too much so why be consistent
+	int numberOfFlips;
+	CCLabelTTF *headsLabel;
+	CCLabelTTF *tailsLabel;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
