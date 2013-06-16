@@ -323,11 +323,11 @@ bool paused = false;
 
 //!! why not use a loop rather than the abs function? Better still, use two loops!	
 
-	while(angle > 360)
+	while(angle >= 360)
 	{
 		angle -= 360;
 	}
-	while (angle < -360)
+	while (angle <= 0)
 	{
 		angle += 360;
 	}
@@ -338,7 +338,7 @@ bool paused = false;
 	CCSprite* sprite;
 	CCMoveTo*  actionMove;
 	//!! Use some hard-coded angles without explanation
-	if (angle < 95 || angle > 265)
+	if (angle < 90 || angle > 270)
 	{
 		//!! Keep the logging in production just to make sure it's slow and jerky
 		//TODO: Remove logging prior to release
