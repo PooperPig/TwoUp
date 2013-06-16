@@ -49,12 +49,12 @@ bool paused = false;
 
 		[self initPhysics];
 
-		headsLabel = [CCLabelTTF labelWithString:@"Heads:" fontName:@"Marker Felt" fontSize:32];
+		headsLabel = [CCLabelTTF labelWithString:@"Heads:" fontName:@"Marker Felt" fontSize:24];
 		[self addChild:headsLabel z:0];
 		[headsLabel setColor:ccc3(0,0,255)];
 		headsLabel.position = ccp( 60, s.height-30);
 
-		tailsLabel = [CCLabelTTF labelWithString:@"Tails:" fontName:@"Marker Felt" fontSize:32];
+		tailsLabel = [CCLabelTTF labelWithString:@"Tails:" fontName:@"Marker Felt" fontSize:24];
 		[self addChild:tailsLabel z:0];
 		[tailsLabel setColor:ccc3(0,0,255)];
 		tailsLabel.position = ccp( s.width - 80, s.height-30);
@@ -276,7 +276,7 @@ bool paused = false;
 	paused = true;
 
 
-	resultLabel = [CCLabelTTF labelWithString:s fontName:@"Marker Felt" fontSize:290];
+	resultLabel = [CCLabelTTF labelWithString:s fontName:@"Marker Felt" fontSize:200];
 	[self addChild:resultLabel z:0];
 	[resultLabel setColor:ccc3(50,185,205)];
 	resultLabel.position = ccp( sz.width/2, sz.height/2);
